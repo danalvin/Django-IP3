@@ -28,3 +28,16 @@ def profile(request, username):
 def project(request, project_id):
     projecth = Project.objects.get(id = project_id)
     return render(request, 'projects.html', {'project': projecth})
+
+
+def search_results(request):
+    if 'projects' in request.GET and request.GET["projects"]:
+        search_term = request.GET.get("projects")
+        searched_articles = Project.search_project(search_term)
+        message = "{search_term}"
+
+        return render(request, 'search.html', {"message": message, "projects": searched_articles})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-news/search.html', {"message": message})

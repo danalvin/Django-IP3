@@ -42,3 +42,8 @@ class Project(models.Model):
     def get_all(cls):
         projects = cls.objects.all()
         return projects
+
+    @classmethod
+    def search_project(cls,search_term):
+        projects = cls.objects.filter(site_description__icontains=search_term)
+        return projects
