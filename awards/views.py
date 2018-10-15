@@ -23,3 +23,9 @@ def post(request):
 def profile(request, username):
     user = User.objects.get(username=username)
     return render(request, 'profile.html', {'user': user})
+
+
+def project(request):
+    profile = Profile.get_all()
+    projects = Project.get_all()
+    return render(request, 'projects.html', {'projects': projects, 'profile': profile})

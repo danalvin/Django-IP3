@@ -21,6 +21,11 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
+    @classmethod
+    def get_all(cls):
+        profile = cls.objects.all()
+        return profile
+
 
 class Project(models.Model):
 
