@@ -16,21 +16,24 @@ def index(request):
     return render(request, 'index.html', {'projects': projects})
 
 
+@login_required(login_url='/accounts/login/')
 def post(request):
     projects = Project.get_all()
     return render(request, 'page.html', {'projects': projects})
 
 
+@login_required(login_url='/accounts/login/')
 def profile(request, username):
     user = User.objects.get(username=username)
     return render(request, 'profile.html', {'user': user})
 
 
+@login_required(login_url='/accounts/login/')
 def project(request, project_id):
     projecth = Project.objects.get(id=project_id)
     return render(request, 'projects.html', {'project': projecth})
 
-
+@login_required(login_url='/accounts/login/')
 def search_results(request):
     if 'projects' in request.GET and request.GET["projects"]:
         search_term = request.GET.get("projects")
@@ -44,7 +47,8 @@ def search_results(request):
         return render(request, 'search.html', {"message": message})
 
 
-def new_project(request):
+@login_required(login_url='/accounts/login/')
+def upload(request):
     current_user = request.user
     profiles = Profile.objects.get(user=current_user)
     if request.method == 'POST':
@@ -54,7 +58,7 @@ def new_project(request):
             project.user = current_user
             project.profile = profiles
             project.save()
-        return redirect('index')
+        return redirect('loader')
     else:
         form = ProjectForm()
     return render(request, 'upload.html', {"form": form})

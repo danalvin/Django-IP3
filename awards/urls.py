@@ -10,9 +10,8 @@ urlpatterns =[
     url(r'^$', views.loader, name='loader'),
     url(r'^project/(\d+)', views.project, name='project'),
     url(r'^profile/(\d+)', views.profile, name='profile'),
-    url(r'^profile/(\d+)', views.profile, name='profile'),
     url(r'^home/', views.index, name='Awards'),
-    url(r'^upload/', views.new_project, name='upload'),
+    url(r'^upload/', views.upload, name='upload'),
     url(r'^search/', views.search_results, name='search')
 
 ]
