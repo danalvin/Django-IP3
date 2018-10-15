@@ -27,7 +27,7 @@ def profile(request, username):
 
 
 def project(request, project_id):
-    projecth = Project.objects.get(id = project_id)
+    projecth = Project.objects.get(id=project_id)
     return render(request, 'projects.html', {'project': projecth})
 
 
@@ -43,14 +43,18 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
 
+
 def new_project(request):
-   current_user = request.user
-   profile = Profile.objects.get(user=current_user)
-   if request.method == 'POST':
-       form = ProjectForm(request.POST, request.FILES)
-       if form.is_valid():
-           project = form.save(commit=False)
-           project.user = current_user
-           project.profile = profile
-           project.save()
-       return redirect('index')
+    current_user = request.user
+    profiles = Profile.objects.get(user=current_user)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = current_user
+            project.profile = profiles
+            project.save()
+        return redirect('index')
+    else:
+        form = ProjectForm()
+    return render(request, 'upload.html', {"form": form})
