@@ -1,0 +1,86 @@
+{%extends 'base.html'%}
+​{% load static %}
+
+{% block content %}
+
+<style>
+
+.project-detail{
+    background-color: #fff;
+    color: #000;
+    height: 1200px;
+}
+
+.project-art{
+    float: right;
+    width: 500px;
+    height: 500px;
+}
+
+.screenshot{
+    width: 100%;
+    height: 600px;
+}
+</style>
+<div class="project-detail">
+    <div class="container-fluid showcase">
+​
+     <div class="container">
+        <br>
+        <br>
+        <br>
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="row">
+                        <h1 class="text-center">{{project.site_description}}</h1>
+                      </div>
+                    <p>{{project.image}}</p>
+                  </div>
+
+                  <!--<div class="row">-->
+                    <!--<p>Posted {{project.pub_date|timesince}} by {{project.editor.first_name}}</p>-->
+                  <!--</div>-->
+<!--​-->
+                  <br><br>
+​
+                  <div class="row">
+                    <p>Link to live site: <a target="_blank" href="{{project.site_link}}">Live Site</a>  </p>
+                  </div>
+​
+​
+                  <br>
+                  <br>
+​
+                  <div class="row">
+                    <h3>Rating: 0</h3>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{{project.image.url}}" class="img-responsive project-art" alt="">
+            </div>
+        </div>
+
+      <br>
+      <br>
+      <br>
+     </div>
+
+    </div>
+​
+    <br><br>
+​
+       <div class="container-fluid white-text">
+          <div class="container">
+            <h3 class="center-align">Reviews</h3>
+            <br><br>
+
+          </div>
+
+         </div>
+</div>
+​
+ {% endblock %}

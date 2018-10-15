@@ -1,9 +1,86 @@
-{% extends 'base.html' %}
-{% blockcontent  %}
-{% for project in projects %}
-<h4> </h4>
+{%extends 'base.html'%}
+​
+ {% block content %}
+​
+<div class="project-detail">
+    <div class="container-fluid showcase">
+​
+     <div class="container">
+        <br>
+        <br>
+        <br>
 
 
 
-{% endfor %}
-{% endblock %}
+        <div class="row">
+            <div class="col m6">
+                <div class="row">
+                    <div class="row">
+                        <h1 class="text-center">{{project.title}}</h1>
+                      </div>
+                    <p>{{project.post}}</p>
+                  </div>
+
+                  <div class="row">
+                    <p>Posted {{project.pub_date|timesince}} by {{project.editor.first_name}}</p>
+                  </div>
+​
+                  <br><br>
+​
+                  <div class="row">
+                    <p>Link to live site: </p>
+                  </div>
+​
+​
+                  <br>
+                  <br>
+​
+                  <div class="row">
+                    <h3>Rating: 0</h3>
+                  </div>
+            </div>
+            <div class="col m6">
+                <img src="{{project.project_image.url}}" class="img-responsive project-art" alt="">
+            </div>
+        </div>
+
+      <br>
+      <br>
+      <br>
+     </div>
+
+    </div>
+​
+    <br><br>
+       <div class="container-fluid all-projects">
+        <div class="container">
+          <h3 class="center-align">Screenshots</h3>
+          <br><br>
+​
+          <img class="screenshot" src="../static/img/template.svg" alt="">
+​
+          <br><br><br>
+​
+          <img class="screenshot" src="../static/img/template2.svg" alt="">
+​
+          <br><br><br>
+​
+          <img class="screenshot" src="../static/img/template3.svg" alt="">
+​
+          <br><br>
+​
+        </div>
+
+       </div>
+​
+       <div class="container-fluid white-text">
+          <div class="container">
+            <h3 class="center-align">Reviews</h3>
+            <br><br>
+
+          </div>
+
+         </div>
+</div>
+​
+ {% endblock %}

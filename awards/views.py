@@ -25,7 +25,6 @@ def profile(request, username):
     return render(request, 'profile.html', {'user': user})
 
 
-def project(request):
-    profile = Profile.get_all()
-    projects = Project.get_all()
-    return render(request, 'projects.html', {'projects': projects, 'profile': profile})
+def project(request, project_id):
+    projecth = Project.objects.get(id = project_id)
+    return render(request, 'projects.html', {'project': projecth})

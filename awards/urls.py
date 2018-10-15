@@ -8,8 +8,8 @@ from django.conf.urls.static import static
 urlpatterns =[
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^$', views.loader, name='loader'),
-    url(r'^project', views.project, name='project'),
-    url(r'^profile', views.profile, name='profile'),
+    url(r'^project/(\d+)', views.project, name='project'),
+    url(r'^profile/(\d+)', views.profile, name='profile'),
     url(r'^home/', views.index, name='Awards')
 ]
 if settings.DEBUG:

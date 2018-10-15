@@ -50,3 +50,21 @@
 }
 
 }
+
+
+.project-detail{
+    background-color: #fff;
+    color: #000;
+    height: 1200px;
+}
+
+.project-art{
+    float: right;
+    width: 500px;
+    height: 500px;
+}
+
+.screenshot{
+    width: 100%;
+    height: 600px;
+}
