@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -31,7 +32,7 @@ class Project(models.Model):
 
     image = models.ImageField(upload_to='images/')
     site_link= models.CharField(max_length=100)
-    site_description = models.CharField(max_length=100)
+    site_description = HTMLField(max_length=100)
     user = models.ForeignKey(User, related_name='posted_by', on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now=True)
 
