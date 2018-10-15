@@ -11,7 +11,9 @@ urlpatterns =[
     url(r'^project/(\d+)', views.project, name='project'),
     url(r'^profile/(\d+)', views.profile, name='profile'),
     url(r'^profile/(\d+)', views.profile, name='profile'),
-    url(r'^home/', views.index, name='Awards')
+    url(r'^home/', views.index, name='Awards'),
+    url(r'^search/', views.search_results, name='search')
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

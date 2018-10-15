@@ -50,7 +50,9 @@
 }
 
 }
-
+body{
+    background-color: #C0C0C0;
+}
 
 .project-detail{
     background-color: #fff;
