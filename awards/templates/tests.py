@@ -6,7 +6,7 @@ import datetime as dt
 class ProfileTestClass(TestCase):
 
     def setUp(self):
-        self.Pro= Profile(name = 'Jeff', bio='Made with love')
+        self.Pro= Profile(name = 'Dan', bio='Made with love')
 
 # Testing  instance
     def test_instance(self):
@@ -34,7 +34,7 @@ class ProfileTestClass(TestCase):
 class ProjectsTestClass(TestCase):
 
     def setUp(self):
-        self.Pro= Projects(name = 'Jeff', description='Made with love')
+        self.Pro= Projects(name = 'dan', description='Made with love')
 
 # Testing  instance
     def test_instance(self):
